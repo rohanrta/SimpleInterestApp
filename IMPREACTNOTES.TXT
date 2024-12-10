@@ -1,0 +1,127 @@
+javascript modules:which is used to transfer from one js to another
+-import/export statements
+-import statements:to use an exported data from another js file
+-export statements:used to expoert from one js file to another ,can be used in 2 different ways,
+  -using export keyword:used to export multiple data from a single js file
+  -using export default keyword: this keyword must be at the end of that file
+React App is a collection of different libraries
+react app consist of different component which is used to display contents on browser
+all the components are arranged in tree structure.
+tree structurehas a single parent / root node which is default known as APP component",components are reusable
+-pure javascript function to build components,it will return how to diplay contents inbrowser.these functions are capable of doing single task with the help of arguments
+-functions with no side effects
+-declarative approach  
+-Virtual Dom
+    -lightweight  memory representation of real Dom
+    -Babel librsary is used to display contents into browser
+    -JSX (javascrpt XML): JS Extension for writing HTML code in javascript,which is used to diplay contents inn browser
+    -JSX elemnts:ex:const heading = <h1>heading</h2>
+    rules for suing JSX
+    -Every JSX elemnt must be inside a single tag.Parent tag can be any Cpntainer tag(div,section,article etc) or react fragments(<> </>)tag without name
+    -Every JSX Code must have a closing tag
+    -if a tag has content then:
+      -<startingtag> content </ending tags>
+      if a tag has no content:<startingTag></closing tag>
+      or we can use self closing tags(<startingTag/>)
+    -Instaed of attribute "class" use "className" in JSX
+    -Instaed of attribute "for" use "htmlFor" in JSX
+    In JSx we can directly pass JSCODe inside  a curly braces eg : {jscode}  
+
+    ------------------------------------------------------------------------------------------------------
+    React App creation
+    ------------------------------------------------------------------------------------------------------
+    two ways to create react App 
+    - CRA( using create-react-app command)
+    -vite is a tool for building web applications
+    -installing vite globally :npm i -g create-vite
+    -REact App creation using vite:npm create vite@latest reactAPPname -- -- template react
+    Files and folder structure of react app using vite
+    -Package.json file : npm configuration file for the project
+    -package-lock.json file: used to control version of dependent package of the project.
+    -eslint.config.js - JS configuraton files
+    -node_modules folder : used to locally store dependent packages of project,we can generate node_modules folder with the help of command npm install/npm i
+    Public folder is used to hold data that can be accessed by any part of the project\
+    -index.html:entry point of react applications
+    -src folder :logic of react app is defined here
+      -main.jsx:used to render 9displaying in browser) react app in html element with id as root
+      -strict Mode is used to double check the file for any bugs
+      types of import statements:
+      import with curly braces:if data exported using export keyword
+      import without curly braces :if data is exported using export default
+      {}  in import is used to fetch a single entity from a file
+
+      -createRoot():create a root to display react components inside a browser DOM node.
+      -css file: used to define style for all components in react app
+
+      reconcillation 
+
+      App.jsx:used to create react root component
+      asset folder is used to hold media files used in react project
+
+Components:which is used to diplay contents in browser,used to create component create a jsx/js file with filename staring capital letter
+  -create components in two ways,
+    -Function based components: uses js pure function to build components,Function name must be similar to its file name.it must return jsx code
+    class/stateful based components: uses class to create components class inherit react compnnents
+    Data sharing between react components -data can be transfered from parent to child:use "props" Object
+    Props:Is a Property of a component.it is an Object used to transfer data from parent to child,parent data can be shared  via child tag attribute.
+    to acces  parent data in child use props as an argument in child component function
+   -life cycle  methods of react component
+   - Mounting phase :Putting jsx into DOM
+    - constructor()
+    - getDerivedStateFromProps()
+    - render()
+    -componentDidMount()
+   -Updating phase : when component get updated
+    -getDerivedStateFromProps()
+    - getSnapShotBeforeUpdate()
+    - shouldComponentUpdate()-return boolean value
+    - render()
+    -componentDidUpdate()
+   - unmounting phase: removing component from DOM 
+   
+   class based component                    function based component
+   --------------------------              -----------------------------
+   1.using class to create,render method      1.using Js pure functions and returnjsx
+   must return jsx                          jsx
+   2.stateful component                       2.stateless component
+   3.Hooks are not used                      3. hooks are used
+   4.constructor are used for initialization    4.No need of constructor
+   5. life cycle components are available       5.life cycle methods are not available
+    how can we apply conditional statements
+    conditional rendering:used based on condition rendering jsx elements in browser,using if-else,ternary operator(?:)/if statement
+    List in React:use map array method.set a key attribute to duplicating jsx element in a List
+    css styling in react:
+    -inline Css:use style attribute to apply style to jsx elemnt,style must be as js Object
+    syntax:style={{css-property}}
+    -External Css:Define Css style in an external css file and link csss file to component file using import statement
+    we cannot import css file into a variable in component file
+    syntax:
+    import "css-file-path"
+
+
+    - using CSS module files:File with extension .module.css is known as Css 'module file'  in this we have to define style in class. To use module css file we have to import it into the component filesyntax:import variableName from 'modulecss file path',top aplly components ,use variableName.classNme
+
+    Event Handling in React:Syntax:event ={function Call}
+    -Binding functions  without argument : event ={functionName}
+    -Binding Functions With Argument:event= {()=>function(arg)}
+    -Binding function with arguments as event : event ={(event)=>function(event)}
+    state in React : Used to store data of a component , when a state value change component will rerender
+    Hooks in react: predefined methods in react .used to provide react component features to function based component.
+    to use a hook in a functional component ,it has to be call the hook:
+    -rules to call hooks in functional component
+      - import hook in component from react
+      - to use hook in component call the hook in top level of component.
+      - Hooks cannot be conditional
+    - Based on react feature there are different types of hooks are available
+    - Built in Hooks
+    -useState(Initial-value) hook: used to create state in functional component,this hook will return array of 2 arguments.First argument is a state,second argument is a function name used to update state.
+    state updating function name must start with 'set'
+   -useEffect(callbackfn,dependency):used to apply side effects to a functional component,we can pass side effect as its first argument as call back function and we can also an optional dependency argument to decide when to spply side effects in component
+    -useRef(initial value): is a react hook that lets you reference a value that's not needed for rendering.Initial value is optional,it returns an object
+    -custom hooks
+    life cycle
+    
+
+    Form Handling in React : There areb  two different ways to manage  data inside the form by a  component 
+    -controlled Components: are componets which store data inside its won state
+    -Uncontrolled Components: Components who acess form data using its Dom element reference
